@@ -1,0 +1,5 @@
+@import "hover-ext";
+
+@mixin ru_company_elevator {
+  @include ru_company_elevator-hover-ext;
+}

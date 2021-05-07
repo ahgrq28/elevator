@@ -5,6 +5,7 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Table(name = "ELEVATOR_BARN")
@@ -17,6 +18,7 @@ public class Barn extends StandardEntity {
     private String number;
 
     @Column(name = "DESCRIPTION")
+    @Lob
     private String description;
 
     @Column(name = "CAPACITY")

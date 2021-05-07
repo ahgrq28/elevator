@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
-    <menu id="application-elevator" insertBefore="administration" caption="mainMsg://menu_config.application-elevator">
-    </menu>
+        <menu id="premises" icon="font-icon:HOME" caption="mainMsg://menu.properties.premises">
+            <item screen="elevator_Barn.browse" caption="mainMsg://menu_config.elevator_Barn.browse"/>
+            <item screen="elevator_MedicalExamination.browse"
+                  caption="mainMsg://menu_config.elevator_MedicalExamination.browse"/>
+        </menu>
+        <menu id="transport" icon="font-icon:CAR" caption="mainMsg://menu.properties.transport">
+            <item screen="elevator_Vehicle.browse" caption="mainMsg://menu_config.elevator_Vehicle.browse"/>
+            <item screen="elevator_Model.browse" caption="mainMsg://menu_config.elevator_Model.browse"/>
+        </menu>
+        <menu id="overhead" icon="font-icon:BOOK" caption="mainMsg://menu.properties.overhead">
+            <item screen="elevator_ConsignmentNoteConsignment.browse"
+                  caption="mainMsg://menu_config.elevator_ConsignmentNoteConsignment.browse"/>
+            <item screen="elevator_ConsignmentNoteReceipt.browse"
+                  caption="mainMsg://menu_config.elevator_ConsignmentNoteReceipt.browse"/>
+        </menu>
+        <item id="organization" icon="COLUMNS" screen="elevator_Organization.browse"
+              caption="mainMsg://menu_config.elevator_Organization.browse"/>
 </menu-config>

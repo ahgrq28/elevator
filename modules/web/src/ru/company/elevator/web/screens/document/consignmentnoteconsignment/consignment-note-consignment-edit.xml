@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:app="http://schemas.company.com/demo/0.1/ui-component.xsd"
+        caption="msg://consignmentNoteConsignmentEdit.caption"
+        focusComponent="form"
+        messagesPack="ru.company.elevator.web.screens.document.consignmentnoteconsignment">
+    <data>
+        <instance id="consignmentNoteConsignmentDc"
+                  class="ru.company.elevator.entity.document.ConsignmentNoteConsignment">
+            <view extends="_local">
+                <property name="barn" view="_minimal"/>
+                <property name="vehicle" view="_minimal"/>
+                <property name="organization" view="_minimal"/>
+                <property name="medicalExamination" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+        <collection id="organizationsDc" class="ru.company.elevator.entity.organization.Organization">
+            <view extends="_local"/>
+            <loader id="organizationsDl">
+                <query>
+                    <![CDATA[select e from elevator_Organization e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="vehiclesDc" class="ru.company.elevator.entity.transport.Vehicle">
+            <view extends="_local"/>
+            <loader id="vehiclesDl">
+                <query>
+                    <![CDATA[select e from elevator_Vehicle e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="barnsDc" class="ru.company.elevator.entity.Barn">
+            <view extends="_local"/>
+            <loader id="barnsDl">
+                <query>
+                    <![CDATA[select e from elevator_Barn e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="auto"
+                width="auto" forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="consignmentNoteConsignmentDc">
+            <column width="350px">
+                <textField id="numberField" property="number"/>
+                <dateField id="dateField" property="date"/>
+                <textField id="gradeField" property="grade"/>
+                <lookupPickerField id="barnField" property="barn"
+                                   optionsContainer="barnsDc">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <lookupPickerField id="vehicleField" property="vehicle"
+                                   optionsContainer="vehiclesDc">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <lookupPickerField id="organizationField" property="organization"
+                                   optionsContainer="organizationsDc">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <app:stepperField id="leftField" property="left" step="1.1"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+
+        </hbox>
+    </layout>
+</window>

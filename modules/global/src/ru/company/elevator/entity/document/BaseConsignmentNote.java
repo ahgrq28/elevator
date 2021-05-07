@@ -1,9 +1,11 @@
 package ru.company.elevator.entity.document;
 
+import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
+import org.apache.commons.lang3.StringUtils;
 import ru.company.elevator.entity.Barn;
 import ru.company.elevator.entity.medical.MedicalExamination;
 import ru.company.elevator.entity.organization.Organization;
@@ -104,6 +106,12 @@ public class BaseConsignmentNote extends StandardEntity {
 
     public Integer getNumber() {
         return number;
+    }
+
+    @Transient
+    @MetaProperty(related = "number")
+    public String getCaption() {
+        return StringUtils.defaultString(String.valueOf(number));
     }
 
     public void setNumber(Integer number) {

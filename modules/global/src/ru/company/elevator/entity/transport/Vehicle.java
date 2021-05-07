@@ -15,7 +15,6 @@ public class Vehicle extends StandardEntity {
     private static final long serialVersionUID = -1709555758047205931L;
 
     @Column(name = "GOVERNMENT_NUMBER")
-    @Pattern(regexp = "U###UU##*")
     private String number;
 
     @ManyToOne(fetch = FetchType.LAZY)

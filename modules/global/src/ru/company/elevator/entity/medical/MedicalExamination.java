@@ -1,5 +1,6 @@
 package ru.company.elevator.entity.medical;
 
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.security.entity.User;
 
@@ -8,6 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Table(name = "ELEVATOR_MEDICAL_EXAMINATION")
 @Entity(name = "elevator_MedicalExamination")
+@NamePattern("%s|medicalUser")
 public class MedicalExamination extends StandardEntity {
     private static final long serialVersionUID = -4195536726229853564L;
 

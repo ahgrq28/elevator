@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://vehicleEdit.caption"
+        focusComponent="form"
+        messagesPack="ru.company.elevator.web.screens.transport.vehicle">
+    <data>
+        <instance id="vehicleDc"
+                  class="ru.company.elevator.entity.transport.Vehicle">
+            <view extends="_local">
+                <property name="model" view="_minimal"/>
+                <property name="user" view="_minimal"/>
+                <property name="organization" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+        <collection id="modelsDc" class="ru.company.elevator.entity.transport.Model">
+            <view extends="_local"/>
+            <loader id="modelsDl">
+                <query>
+                    <![CDATA[select e from elevator_Model e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="usersDc" class="com.haulmont.cuba.security.entity.User">
+            <view extends="_local"/>
+            <loader id="usersDl">
+                <query>
+                    <![CDATA[select e from sec$User e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="organizationsDc" class="ru.company.elevator.entity.organization.Organization">
+            <view extends="_local"/>
+            <loader id="organizationsDl">
+                <query>
+                    <![CDATA[select e from elevator_Organization e]]>
+                </query>
+            </loader>
+        </collection>
+
+    </data>
+    <dialogMode width="auto" height="auto"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="vehicleDc">
+            <column width="350px">
+                <maskedField id="numberField" property="number" mask="U###UU##*"/>
+                <lookupPickerField id="modelField" property="model"
+                                   optionsContainer="modelsDc">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <lookupPickerField id="userField" property="user"
+                                   optionsContainer="usersDc">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <lookupPickerField id="organizationField" property="organization"
+                                   optionsContainer="organizationsDc">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

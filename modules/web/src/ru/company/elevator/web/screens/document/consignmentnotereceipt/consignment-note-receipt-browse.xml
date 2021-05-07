@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://consignmentNoteReceiptBrowse.caption"
+        focusComponent="consignmentNoteReceiptsTable"
+        messagesPack="ru.company.elevator.web.screens.document.consignmentnotereceipt">
+    <data readOnly="true">
+        <collection id="consignmentNoteReceiptsDc"
+                    class="ru.company.elevator.entity.document.ConsignmentNoteReceipt">
+            <view extends="_local">
+                <property name="barn" view="_minimal"/>
+                <property name="vehicle" view="_minimal"/>
+                <property name="organization" view="_minimal"/>
+                <property name="medicalExamination" view="_minimal"/>
+            </view>
+            <loader id="consignmentNoteReceiptsDl">
+                <query>
+                    <![CDATA[select e from elevator_ConsignmentNoteReceipt e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="consignmentNoteReceiptsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="consignmentNoteReceiptsTable"
+                dataLoader="consignmentNoteReceiptsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="consignmentNoteReceiptsTable"
+                    width="100%"
+                    dataContainer="consignmentNoteReceiptsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="number"/>
+                <column id="date"/>
+                <column id="grade"/>
+                <column id="barn"/>
+                <column id="vehicle"/>
+                <column id="organization"/>
+                <column id="medicalExamination"/>
+                <column id="coming"/>
+                <column id="weediness"/>
+                <column id="humidity"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="consignmentNoteReceiptsTable.create"/>
+                <button id="editBtn" action="consignmentNoteReceiptsTable.edit"/>
+                <button id="removeBtn" action="consignmentNoteReceiptsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
