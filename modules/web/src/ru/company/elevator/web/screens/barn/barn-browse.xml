@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://barnBrowse.caption"
+        focusComponent="barnsTable"
+        messagesPack="ru.company.elevator.web.screens.barn">
+    <data readOnly="true">
+        <collection id="barnsDc"
+                    class="ru.company.elevator.entity.Barn">
+            <view extends="_local"/>
+            <loader id="barnsDl">
+                <query>
+                    <![CDATA[select e from elevator_Barn e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="barnsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="barnsTable"
+                dataLoader="barnsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="barnsTable"
+                    width="100%"
+                    dataContainer="barnsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="number"/>
+                <column id="description" maxTextLength="25"/>
+                <column id="capacity"/>
+                <column id="fillingProgress" caption="msg://fillingProgress.caption"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="barnsTable.create"/>
+                <button id="editBtn" action="barnsTable.edit"/>
+                <button id="removeBtn" action="barnsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

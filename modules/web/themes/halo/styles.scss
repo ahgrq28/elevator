@@ -1,0 +1,17 @@
+@import "halo-defaults";
+@import "ru.company.elevator/halo-ext-defaults";
+@import "app-components";
+@import "ru.company.elevator/halo-ext";
+
+.halo {
+  // include auto-generated app components SCSS
+  @include app_components;
+
+  @include ru_company_elevator-halo-ext;
+
+  .bg_login {
+    background-image: url("bg-bread.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-color: #bde7f6;
+  }
+}

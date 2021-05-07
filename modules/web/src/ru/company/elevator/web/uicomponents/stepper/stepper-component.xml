@@ -1,0 +1,9 @@
+<composite xmlns="http://schemas.haulmont.com/cuba/screen/composite.xsd">
+    <hbox id="rootBox" width="100%" expand="valueField">
+        <textField id="valueField"/>
+        <button id="upBtn"
+                icon="font-icon:CHEVRON_UP"/>
+        <button id="downBtn"
+                icon="font-icon:CHEVRON_DOWN"/>
+    </hbox>
+</composite>
