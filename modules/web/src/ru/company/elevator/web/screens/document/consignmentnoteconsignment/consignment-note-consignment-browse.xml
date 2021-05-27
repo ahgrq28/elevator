@@ -11,7 +11,9 @@
                 <property name="barn" view="_minimal"/>
                 <property name="vehicle" view="_minimal"/>
                 <property name="organization" view="_minimal"/>
-                <property name="medicalExamination" view="_minimal"/>
+                <property name="medicalExamination" view="_minimal">
+                    <property name="medicalUser" view="_minimal"/>
+                </property>
             </view>
             <loader id="consignmentNoteConsignmentsDl">
                 <query>
@@ -36,7 +38,7 @@
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
-                <action id="medical"/>
+                <action id="medical" caption="msg://medicalBtn"/>
             </actions>
             <columns>
                 <column id="number"/>

@@ -4,12 +4,17 @@ import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.security.entity.User;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Table(name = "ELEVATOR_MEDICAL_EXAMINATION")
 @Entity(name = "elevator_MedicalExamination")
-@NamePattern("%s|medicalUser")
+@NamePattern("%s - %s|medicalUser, status")
 public class MedicalExamination extends StandardEntity {
     private static final long serialVersionUID = -4195536726229853564L;
 
