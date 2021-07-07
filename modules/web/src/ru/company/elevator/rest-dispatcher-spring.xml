@@ -11,7 +11,6 @@
                    entry-point-ref="oauthAuthenticationEntryPoint"
                    xmlns="http://www.springframework.org/schema/security">
         <!-- Specify one or more protected URL patterns-->
-        <intercept-url pattern="/rest/myapi/**" access="isAuthenticated()"/>
         <intercept-url pattern="/rest/**" access="isAuthenticated()"/>
         <anonymous enabled="false"/>
         <csrf disabled="true"/>
