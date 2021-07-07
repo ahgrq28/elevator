@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<queries xmlns="http://schemas.haulmont.com/cuba/rest-queries.xsd">
+    <query name="barnByNumber" entity="elevator_Barn" view="_local">
+        <jpql><![CDATA[select b from elevator_Barn b where b.number = :number]]></jpql>
+        <params>
+            <param name="number" type="java.lang.String"/>
+        </params>
+    </query>
+    <query name="allVehicle" entity="elevator_Vehicle" view="_local">
+        <jpql><![CDATA[select v from elevator_Vehicle v order by v.number]]></jpql>
+    </query>
+    <query name="allConsignmentNoteReceipt" entity="elevator_ConsignmentNoteReceipt" view="_local">
+        <jpql><![CDATA[select u from elevator_ConsignmentNoteReceipt u order by u.date]]></jpql>
+    </query>
+    <query name="allConsignmentNoteReceipt" entity="elevator_ConsignmentNoteConsignment" view="_local">
+        <jpql><![CDATA[select u from elevator_ConsignmentNoteReceipt u order by u.date]]></jpql>
+    </query>
+    <query name="organizationByIds" entity="elevator_Organization" view="_local" cacheable="true">
+        <jpql><![CDATA[select o from elevator_Organization o where o.id in :ids]]></jpql>
+        <params>
+            <param name="ids" type="java.util.UUID[]"/>
+        </params>
+    </query>
+</queries>
