@@ -6,7 +6,7 @@
         </method>
         <method name="retrieveVehicleByUser"/>
         <method name="createVehicle">
-            <param name="vehicle"/>
+            <param name="vehicleDto"/>
         </method>
     </service>
 </services>

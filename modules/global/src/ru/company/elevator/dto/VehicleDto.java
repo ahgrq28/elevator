@@ -1,14 +1,22 @@
 package ru.company.elevator.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.validation.annotation.Validated;
+
 import java.io.Serializable;
 import java.util.UUID;
 
+@Validated
 public class VehicleDto implements Serializable {
     private static final long serialVersionUID = -3421904158277884749L;
 
+    @JsonProperty("number")
     private String number;
+    @JsonProperty("modelId")
     private UUID modelId;
+    @JsonProperty("userId")
     private UUID userId;
+    @JsonProperty("organizationId")
     private UUID organizationId;
 
     public String getNumber() {

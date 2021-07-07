@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
 
+    <view entity="elevator_Vehicle" name="vehicle-dto" extends="_minimal">
+        <property name="organization" view="_minimal"/>
+        <property name="model" view="_minimal"/>
+        <property name="user" view="_minimal"/>
+        <property name="number"/>
+    </view>
 </views>

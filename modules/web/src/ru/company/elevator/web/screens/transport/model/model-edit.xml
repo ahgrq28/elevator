@@ -17,7 +17,7 @@
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="modelDc">
             <column width="350px">
-                <textField id="nameField" property="name"/>
+                <textArea id="nameField" property="name" rows="3"/>
                 <textArea id="descriptionField" property="description" rows="5"/>
             </column>
         </form>

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Model extends StandardEntity {
     private static final long serialVersionUID = 4920488681728456829L;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", length = 1000)
     private String name;
 
     @Lob

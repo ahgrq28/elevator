@@ -57,8 +57,8 @@ public class MedicineRole extends AnnotatedRoleDefinition {
         return super.entityAttributePermissions();
     }
 
-    @ScreenComponentAccess(screenId = "elevator_ConsignmentNoteConsignment.browse", deny = {"createBtn", "editBtn", "removeBtn"})
-    @ScreenComponentAccess(screenId = "elevator_ConsignmentNoteReceipt.browse", deny = {"createBtn", "editBtn", "removeBtn"})
+    @ScreenComponentAccess(screenId = "elevator_ConsignmentNoteConsignment.browse", deny = {"consignmentNoteConsignmentsTable<create>", "createBtn", "consignmentNoteConsignmentsTable<edit>", "editBtn", "consignmentNoteConsignmentsTable<remove>", "removeBtn"})
+    @ScreenComponentAccess(screenId = "elevator_ConsignmentNoteReceipt.browse", deny = {"consignmentNoteReceiptsTable<create>", "createBtn", "consignmentNoteReceiptsTable<edit>", "editBtn", "consignmentNoteReceiptsTable<remove>", "removeBtn"})
     @Override
     public ScreenComponentPermissionsContainer screenComponentPermissions() {
         return super.screenComponentPermissions();

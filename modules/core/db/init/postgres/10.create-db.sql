@@ -82,7 +82,7 @@ create table ELEVATOR_MODEL (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    NAME varchar(255),
+    NAME varchar(1000),
     DESCRIPTION text,
     --
     primary key (ID)

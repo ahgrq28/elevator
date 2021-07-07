@@ -6,12 +6,13 @@
     <!-- Define a base package for your controllers-->
     <context:component-scan base-package="ru.company.elevator.web.rest"/>
 
-    <security:http pattern="/rest/myapi/**"
+    <security:http pattern="/rest/**"
                    create-session="stateless"
                    entry-point-ref="oauthAuthenticationEntryPoint"
                    xmlns="http://www.springframework.org/schema/security">
         <!-- Specify one or more protected URL patterns-->
         <intercept-url pattern="/rest/myapi/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/rest/**" access="isAuthenticated()"/>
         <anonymous enabled="false"/>
         <csrf disabled="true"/>
         <cors configuration-source-ref="cuba_RestCorsSource"/>

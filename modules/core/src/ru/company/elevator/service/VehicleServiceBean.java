@@ -14,6 +14,8 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.UUID;
 
+import static com.haulmont.cuba.core.global.View.LOCAL;
+
 @Service(VehicleService.NAME)
 public class VehicleServiceBean implements VehicleService {
 
@@ -28,15 +30,26 @@ public class VehicleServiceBean implements VehicleService {
 
     @Override
     public List<Vehicle> retrieveVehicleByUser() {
+        return retrieveVehicleByUser(LOCAL);
+    }
+
+    @Override
+    public List<Vehicle> retrieveVehicleByUser(String view) {
         UUID userId = userSessionSource.getUserSession().getUser().getId();
-        return retrieveVehicleByUser(userId);
+        return retrieveVehicleByUser(userId, view);
     }
 
     @Override
     public List<Vehicle> retrieveVehicleByUser(UUID userId) {
+        return retrieveVehicleByUser(userId, LOCAL);
+    }
+
+    @Override
+    public List<Vehicle> retrieveVehicleByUser(UUID userId, String view) {
         return dataManager.load(Vehicle.class)
                 .query("select v from elevator_Vehicle v where v.user.id = :userId")
                 .parameter("userId", userId)
+                .view(view)
                 .list();
     }
 

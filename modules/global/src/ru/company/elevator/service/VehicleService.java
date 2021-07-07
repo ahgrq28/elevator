@@ -11,7 +11,11 @@ public interface VehicleService {
 
     List<Vehicle> retrieveVehicleByUser();
 
+    List<Vehicle> retrieveVehicleByUser(String view);
+
     List<Vehicle> retrieveVehicleByUser(UUID userId);
+
+    List<Vehicle> retrieveVehicleByUser(UUID userId, String view);
 
     Vehicle createVehicle(VehicleDto vehicleDto);
 }
